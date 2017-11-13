@@ -1,0 +1,38 @@
+"""
+ Write a program to find the n-th ugly number.
+
+Ugly numbers are positive numbers whose prime factors only include 2, 3, 5.
+For example, 1, 2, 3, 4, 5, 6, 8, 9, 10, 12 is the sequence of the first 10 ugly numbers.
+"""
+def f(n):
+    res = [1]
+    factors = []
+    notprime_fac = []
+    prime_fac =[]
+    curnum = 2
+    while len(res) < n:
+      print curnum, 'curnum'
+      for num in range(1,curnum+1):
+        if curnum % num == 0:
+            factors.append(num)
+      print 'factors',factors,'curnum',curnum
+      for item in factors:
+         for n in range(2,item):
+            if item % n == 0:
+               notprime_fac.append(item)
+      print 'notprime_fac', notprime_fac
+      for item in factors:
+          if item not in notprime_fac:
+              prime_fac.append(item)
+      prime_fac = list(set(prime_fac))
+      print 'prime_fac', prime_fac,'curnum',curnum
+      if sorted(list(set(prime_fac))) == [1,2] or sorted(list(set(prime_fac))) == [1,3] or sorted(list(set(prime_fac))) == [1,5] or \
+         sorted(list(set(prime_fac))) == [1,2,3] or \
+         sorted(list(set(prime_fac))) == [1,2,5] or sorted(list(set(prime_fac)))== [1,3,5] or sorted(list(set(prime_fac))) == [1,2,3,5]:
+             res.append(curnum)
+      print curnum,res
+      factors = []
+      notprime_fac = []
+      prime_fac = []
+      curnum = curnum + 1
+f(10)
