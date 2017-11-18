@@ -4,7 +4,7 @@ equal to given element ?
 """
 
 # Brute force would give a time complexity of O(n3).
-# Below is an alternate approach
+# Below is an alternate approach with O(n2) time complexity
 
 def f(l,target):
     l.sort()
