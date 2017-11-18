@@ -21,7 +21,7 @@ def f(lst):
 
     print minsum,lst[min_i],lst[min_j]
 '''
-# Method 2
+# Method 2. Time cimplexity O(nlogn) for sorting
 
 def f(lst):
     # Sort the list
